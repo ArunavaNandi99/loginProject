@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.login.bean.LoginBean;
+import com.login.bean.Users;
 import com.login.dao.LoginDao;
 
 @WebServlet("/LoginServlet")
@@ -20,15 +20,15 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		LoginBean loginBean = new LoginBean();
+		Users user = new Users();
 
-		loginBean.setUserName(userName);
-		loginBean.setPassword(password);
+		user.setUserName(userName);
+		user.setPassword(password);
 
 		LoginDao loginDao = new LoginDao();
 
 		try {
-			String userValidate = loginDao.authenticateuser(loginBean);
+			String userValidate = loginDao.authenticateuser(user);
 			if (userValidate.equals("User-r")) {
 				HttpSession session = request.getSession();
 				session.setMaxInactiveInterval(10 * 60);

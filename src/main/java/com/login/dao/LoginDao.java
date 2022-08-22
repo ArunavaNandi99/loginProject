@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.login.bean.LoginBean;
+import com.login.bean.Users;
 import com.login.util.DBConnection;
 
 public class LoginDao {
 
-	public String authenticateuser(LoginBean loginBean) {
-		String userName = loginBean.getUserName();
-		String password = loginBean.getPassword();
+	public String authenticateuser(Users user) {
+		String userName = user.getUserName();
+		String password = user.getPassword();
 
 		Connection con = null;
 		Statement stmt = null;
