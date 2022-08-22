@@ -9,7 +9,7 @@
 <%
 if ((request.getSession(false).getAttribute("User") == null)) {
 %>
-<jsp:forward page="login.jsp"></jsp:forward>
+<jsp:forward page="Login.jsp"></jsp:forward>
 <%
 }
 %>
